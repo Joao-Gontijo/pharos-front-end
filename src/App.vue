@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProjectRegister/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import ProjectRegister from './views/ProjectRegister.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ProjectRegister
+  },
+ 
+  
 }
 </script>
 
@@ -21,8 +22,22 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+table {
+  border: 1px solid black;
+  width: 100%;
+}
+body{
+  background-color:rgb(170, 172, 174);
+}
+caption{
+  text-align: left;
+}
+html,body {
+  height:100%;
+  min-height:100%;
+  max-height:100%;
 }
 </style>

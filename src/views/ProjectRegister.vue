@@ -52,7 +52,7 @@
                   <td><button class="button is-info is-light">
                     <img src="../assets/settings-icon.png" class="image is-24x24">
                     </button></td>
-                  <td><button class="button is-danger">
+                  <td><button class="button is-danger"  @click="remover(project), listar()">
                     <img src="../assets/cancel-icon.png" class="image is-24x24">
                     </button></td>
                 </tr>
@@ -93,7 +93,19 @@ export default {
 
         },
         salvar(){
-        
+          if(!this.project.id){
+            Project.salvar(this.project);
+            console.log("salvo");
+            this.project = {};
+          } else {
+            Project.atualizar(this.project);
+            console.log("atualizado");
+          }
+          this.listar();
+        },
+        remover(project){
+          Project.apagar(project);
+          console.log("apagado");
         }
     }
 }

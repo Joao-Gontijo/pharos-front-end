@@ -16,8 +16,8 @@ export default {
         return http.put('projects', project);
     },
 
-    apagar:(project) => {
-        return http.delete('projects',{data:project});
+    apagar:(projectId) => {
+        return http.delete('projects',{data:projectId});
     }
 
     

@@ -6,22 +6,22 @@
 
               <form @submit="salvar(), listar()">
                 <h4 class="mt-4">Project Name</h4>
-                <input class="input mt-1" type="text" placeholder="Type Project name here" v-model="project.projectName">
+                <input required class="input mt-1" type="text" placeholder="Type Project name here" v-model="project.projectName">
                 <h4 class="mt-4">Git Uri</h4>
-                <input class="input mt-1" type="text" placeholder="Git URI" v-model="project.gitUri">
+                <input required class="input mt-1" type="text" placeholder="Git URI" v-model="project.gitUri">
                 <h4 class="mt-4">Local Path</h4>
                 <div class="field has-addons">
-                <input class="input mt-1 has-icon-right" type="text" placeholder="Local Path" v-model="project.localPath">
+                <input required class="input mt-1 has-icon-right" type="text" placeholder="Local Path" v-model="project.localPath">
                 <button class="button mt-1"><img src="../assets/folder-icon.png" class="image is-24x24"></button>
                 </div>
                 <h4 class="mt-4">Jira Uri</h4>
-                <input class="input mt-1" type="text" placeholder="Type Jira Uri" v-model="project.jiraUri">
+                <input required class="input mt-1" type="text" placeholder="Type Jira Uri" v-model="project.jiraUri">
                 <div class="buttons">
                   <button class="button is-link is-light is-outlined mt-4">
                     <img src="../assets/save-icon.png" class="image is-24x24">
                     Save
                   </button>
-                  <button @click="limpar()" class="button is-danger is-light is-outlined mt-4">
+                  <button @click="limpar" class="button is-danger is-light is-outlined mt-4">
                     <img src="../assets/cancel-icon.png" class="image is-24x24">
                     Cancel
                   </button>
@@ -90,7 +90,10 @@ export default {
             })
         },
         limpar(){
-
+          this.project.projectName = "";
+          this.project.gitUri = "";
+          this.project.localPath = "";
+          this.project.jiraUri = "";
         },
         salvar(){
           if(!this.project.id){
@@ -103,7 +106,7 @@ export default {
           }
           this.listar();
         },
-        remover(project){
+        remover(project){    
           Project.apagar(project);
           console.log("apagado");
         }

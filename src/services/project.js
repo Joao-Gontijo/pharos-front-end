@@ -7,18 +7,15 @@ export default {
     },
 
     salvar:(project) =>{
-
         return http.post('projects', project);
     },
 
     atualizar:(project) => {
-
         return http.put('projects', project);
     },
 
-    apagar:(projectId) => {
-        return http.delete('projects',{data:projectId});
+    apagar:(project) => {
+        return http.delete('projects', {data:project});
     }
-
     
 }
